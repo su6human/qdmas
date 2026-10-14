@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: hangman-online
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      # Адрес сайта на GitHub Pages (только домен, без пути), например https://ваш-логин.github.io
+      - key: CORS_ORIGIN
+        sync: false
